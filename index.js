@@ -5,7 +5,7 @@ $(function(){
         event.preventDefault();
         //create a constant for the user input
         const userItem = $('#shopping-list-entry').val();
-        //after item submitted empty the 
+        //after item submitted reset the input field
         $('#shopping-list-entry').val('');
             
          $('.shopping-list').append(`<li>
@@ -23,11 +23,14 @@ $(function(){
     });
 
     //function to delete item from list
+    //when the 'shopping-item-delete' button is clickked the closest li will be removed
     $('.shopping-list').on ('click', '.shopping-item-delete', function(event){
         $(this).closest('li').remove();
     });
-    
+
     //function to toggle checked item on list
+    //when the 'shopping-item-toggle' button is clicked the 'shopping-item__checked'
+    //class will toggle on the 'shopping-item' of the closest li
     $('.shopping-list').on ('click', '.shopping-item-toggle', function(event){
         $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
     });
